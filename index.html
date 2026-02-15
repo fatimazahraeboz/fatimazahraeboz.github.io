@@ -1,250 +1,224 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beautiful Quote for You</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #ff7e5f, #feb47b);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fatima Ezzahrae</title>
 
-        .quote-container {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 30px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 600px;
-            position: relative;
-            overflow: hidden;
-        }
+<style>
+:root{
+  --main:#b3003c;
+  --soft:#ffe6ec;
+}
 
-        .quote {
-            font-size: 2em;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
 
-        .emoji {
-            font-size: 2em;
-            position: absolute;
-            bottom: 5px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+  /* 🌹 Rose / Red Light Background */
+  background: linear-gradient(135deg, #fff0f5, #ffd6e0, #ffccd5);
+  background-attachment: fixed;
+  color:#333;
+}
 
-        .emoji-container {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 3em;
-        }
+/* Header */
+header{
+  background:white;
+  padding:20px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  position:relative;
+}
 
-        .heart, .flower, .smile, .star, .sun, .cloud {
-            margin: 5px;
-        }
+/* 🌸 Logo Left Corner */
+.logo{
+  position:absolute;
+  left:20px;
+  top:10px;
+}
 
-        .heart {
-            color: red;
-        }
+.logo img{
+  width:120px;
+}
 
-        .flower {
-            color: pink;
-        }
+/* Title Center */
+.header-content{
+  text-align:center;
+}
 
-        .smile {
-            color: yellow;
-        }
+header h1{
+  margin:0;
+  color:var(--main);
+}
 
-        .star {
-            color: gold;
-        }
+header p{
+  margin-top:5px;
+  opacity:0.8;
+}
 
-        .sun {
-            color: orange;
-        }
+/* Container */
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:20px;
+}
 
-        .cloud {
-            color: lightblue;
-        }
+.card{
+  background:white;
+  padding:25px;
+  margin:20px 0;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.05);
+  animation: fadeUp 1s ease forwards;
+  opacity:0;
+}
 
-        .floating-emoji {
-            position: absolute;
-            font-size: 3em;
-            animation: float 6s infinite;
-        }
+.card:nth-child(1){animation-delay:0.2s}
+.card:nth-child(2){animation-delay:0.4s}
+.card:nth-child(3){animation-delay:0.6s}
+.card:nth-child(4){animation-delay:0.8s}
 
-        @keyframes float {
-            0% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-            100% {
-                transform: translateY(0);
-            }
-        }
+h2{
+  color:var(--main);
+}
 
-        .greeting {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 30px;
-        }
+/* Gallery */
+.gallery{
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+  justify-content:center;
+}
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .quote {
-                font-size: 1.5em;
-            }
+.gallery img{
+  width:250px;
+  border-radius:12px;
+  transition:0.3s;
+}
 
-            .emoji-container {
-                font-size: 2.5em;
-            }
+.gallery img:hover{
+  transform:scale(1.05);
+}
 
-            .greeting {
-                font-size: 2em;
-            }
+/* Videos */
+video{
+  width:400px;
+  max-width:100%;
+  border-radius:12px;
+  margin:10px;
+}
 
-            .floating-emoji {
-                font-size: 2.5em;
-            }
+/* Buy Box */
+.buyBox{
+  text-align:center;
+}
 
-            .quote-container {
-                width: 90%;
-                padding: 20px;
-            }
-        }
+input{
+  padding:10px;
+  width:120px;
+  text-align:center;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
 
-        @media (max-width: 480px) {
-            .quote {
-                font-size: 1.2em;
-            }
+button{
+  background:var(--main);
+  color:white;
+  border:none;
+  padding:10px 20px;
+  border-radius:8px;
+  cursor:pointer;
+  margin-top:10px;
+  transition:0.3s;
+}
 
-            .emoji-container {
-                font-size: 2em;
-            }
+button:hover{
+  opacity:0.85;
+}
 
-            .greeting {
-                font-size: 1.8em;
-            }
+@keyframes fadeUp{
+  from{transform:translateY(20px); opacity:0;}
+  to{transform:translateY(0); opacity:1;}
+}
 
-            .floating-emoji {
-                font-size: 2em;
-            }
-
-            .quote-container {
-                width: 95%;
-                padding: 15px;
-            }
-        }
-
-    </style>
+footer{
+  text-align:center;
+  padding:15px;
+  background:white;
+  margin-top:30px;
+}
+</style>
 </head>
+
 <body>
 
-    <!-- Greeting Message -->
-    <div class="greeting">
-        مرحبا عزيزتي فاطمة الزهراء ❤️😊
+<header>
+
+  <!-- 🌸 LOGO LEFT -->
+  <div class="logo">
+    <img src="photos/logo.png" alt="Fatima Ezzahrae Logo">
+  </div>
+
+  <div class="header-content">
+    <h1>Fatima Ezzahrae</h1>
+    <p>زهور بلاستيكية تدوم أطول من الطبيعية 🌹</p>
+  </div>
+
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>لماذا تختار زهورنا؟</h2>
+    <p>
+      زهورنا البلاستيكية تدوم لفترة أطول من الزهور الطبيعية،
+      لا تحتاج إلى ماء،
+      ويمكنك شراء زهرة واحدة فقط أو عدة زهور حسب رغبتك.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>صور المنتجات</h2>
+    <div class="gallery">
+      <img src="photos/flower1.jpeg">
+      <img src="photos/flower2.jpeg">
+      <img src="photos/flower3.jpeg">
+      <img src="photos/flower4.jpeg">
+      <img src="photos/flower5.jpeg">
+      <img src="photos/flower6.jpeg">
+      <img src="photos/flower7.jpeg">
+      <img src="photos/flower8.jpeg">
+      <img src="photos/flower9.jpeg">
     </div>
+  </div>
 
-    <div class="emoji-container">
-        <span class="heart">❤️</span>
-        <span class="flower">🌸</span>
-        <span class="smile">😊</span>
-        <span class="star">⭐</span>
-        <span class="sun">☀️</span>
-        <span class="cloud">☁️</span>
-    </div>
+  <div class="card">
+    <h2>فيديوهات</h2>
+    <video controls>
+      <source src="videos/video1.mp4" type="video/mp4">
+    </video>
+    <video controls>
+      <source src="videos/video2.mp4" type="video/mp4">
+    </video>
+    <video controls>
+      <source src="videos/video3.mp4" type="video/mp4">
+    </video>
+    <video controls>
+      <source src="videos/video4.mp4" type="video/mp4">
+    </video>
+  </div>
 
-    <div class="quote-container">
-        <div class="quote" id="quote">جارٍ التحميل...</div>
-        
-    </div>
+  <div class="card buyBox">
+    <h2>اطلب الآن</h2>
+    <input type="number" min="1" value="1">
+    <br>
+    <button>شراء الآن</button>
+  </div>
 
-    <!-- Floating Emojis -->
-    <div class="floating-emoji" style="top: 10%; left: 15%;">🌻</div>
-    <div class="floating-emoji" style="top: 25%; left: 30%;">💖</div>
-    <div class="floating-emoji" style="top: 50%; left: 10%;">🎉</div>
-    <div class="floating-emoji" style="top: 70%; left: 80%;">🌟</div>
+</div>
 
-    <script>
-        const quotes = [
-            "أفضل طريقة للتنبؤ بالمستقبل هي أن تخلقه.",
-            "يبدو دائمًا أنه مستحيل حتى يتم إنجازه.",
-            "لا تذهب حيث قد يؤدي الطريق، بل اذهب حيث لا يوجد طريق واترك أثراً.",
-            "الطريقة الوحيدة لأداء العمل العظيم هي أن تحب ما تفعله.",
-            "النجاح ليس نهائيًا، والفشل ليس مميتًا: الشجاعة للاستمرار هي ما يهم.",
-            "آمن أنك تستطيع، وقد قطعت نصف الطريق.",
-            "الحد الوحيد لتحقيق غدنا هو شكوكنا في اليوم.",
-            "ما يكمن خلفنا وما يكمن أمامنا أمور صغيرة مقارنة بما يكمن داخلنا.",
-            "أنت تفوت 100% من الفرص التي لا تأخذها.",
-            "النجاح عادة ما يأتي لأولئك الذين هم مشغولون جدًا عن البحث عنه.",
-            "لا تشاهد الساعة؛ افعل كما تفعل. استمر في المضي قدمًا.",
-            "ابقَ وجهك دائمًا نحو أشعة الشمس، وستسقط الظلال خلفك.",
-            "ليس الأمر ما إذا كنت قد سقطت، بل ما إذا كنت ستنهض.",
-            "الطريقة الوحيدة لتحقيق المستحيل هي أن تؤمن أنه ممكن.",
-            "كل شيء أردته سيكون على الجانب الآخر من الخوف.",
-            "أفضل انتقام هو النجاح الكبير.",
-            "لا تتوقف عندما تشعر بالتعب. توقف عندما تنتهي.",
-            "عش كما لو كنت ستموت غدًا، وتعلم كما لو كنت ستعيش إلى الأبد.",
-            "أنت لست كبيرًا جدًا لتحديد هدف آخر أو حلم جديد.",
-            "الرحلة المستحيلة هي التي لا تبدأ أبدًا.",
-            "الهدف دون خطة هو مجرد أمنية.",
-            "النجاح لا يأتي من ما تفعله بين الحين والآخر، بل من ما تفعله بشكل مستمر.",
-            "اسعى ألا تكون ناجحًا، بل أن تكون ذا قيمة.",
-            "غالبًا ما تُعدّ الصعوبات الأشخاص العاديين لمصير استثنائي.",
-            "المستقبل ملك لأولئك الذين يؤمنون بجمال أحلامهم.",
-            "لا تنتظر الفرصة. أنشئها.",
-            "كلما عملت بجد من أجل شيء، شعرت بسعادة أكبر عندما تحققه.",
-            "النجاح هو مجموع الجهود الصغيرة، التي تكرر يومًا بعد يوم.",
-            "احلم بشكل كبير وجرّب الفشل.",
-            "النجاح ليس في مدى علوك، ولكن في كيفية إحداث فرق إيجابي في العالم.",
-            "إذا كنت تستطيع أن تحلم به، يمكنك أن تفعله.",
-            "ادفع نفسك، لأنه لا أحد سيفعل ذلك من أجلك.",
-            "حدودك هي فقط خيالك.",
-            "الأشياء العظيمة لا تأتي أبدًا من مناطق الراحة.",
-            "احلم بها. تمنى لها. افعلها.",
-            "النجاح لا يعثر عليك، عليك أن تخرج وتحصل عليه.",
-            "كلما عملت بجد أكثر، كلما أصبحت أكثر حظًا.",
-            "لا تحدّ من تحدياتك. تحدّى حدودك.",
-            "مفتاح النجاح هو أن تبدأ قبل أن تكون جاهزًا.",
-            "الفرص لا تحدث، أنت من يخلقها.",
-            "كل شيء يمكنك تخيله هو حقيقي.",
-            "عليك أن تكون غريبًا لتكون رقم واحد.",
-            "أجد أنني كلما عملت بجد أكثر، زادت حظوظي.",
-            "الطريقة لبدء هي التوقف عن الكلام والبدء في العمل.",
-            "النجاح هو مدى ارتفاعك عندما تضرب القاع.",
-            "آمن بنفسك وبكل ما أنت عليه. اعرف أن هناك شيئًا بداخلك أكبر من أي عقبة.",
-            "أنت لست بحاجة لأن تكون عظيمًا لتبدأ، ولكن عليك أن تبدأ لتكون عظيمًا.",
-            "المكان الوحيد الذي يسبق فيه النجاح العمل هو في القاموس.",
-            "النجاح ليس مفتاح السعادة. السعادة هي مفتاح النجاح.",
-            "الحياة هي 10% ما يحدث لنا و 90% كيف نرد عليه.",
-            "تصرف كما لو كان ما تفعله يحدث فرقًا. إنه يحدث.",
-            "الفرق بين من أنت ومن تريد أن تكون هو ما تفعله.",
-            "النجاح ليس في ما تملكه، ولكن في من تكون."
-        ];
-
-        function generateQuote() {
-            const randomIndex = Math.floor(Math.random() * quotes.length);
-            const quote = quotes[randomIndex];
-            document.getElementById("quote").innerText = `"${quote}"`;
-        }
-
-        // Automatically generate a quote when the page is loaded
-        window.onload = generateQuote;
-    </script>
+<footer>
+  © 2026 Fatima Ezzahrae
+</footer>
 
 </body>
 </html>
