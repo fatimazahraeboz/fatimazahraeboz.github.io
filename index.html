@@ -208,13 +208,28 @@ footer{
   </div>
 
   <div class="card buyBox">
-    <h2>اطلب الآن</h2>
-    <input type="number" min="1" value="1">
-    <br>
-    <button>شراء الآن</button>
-  </div>
+  <h2>اطلب الآن</h2>
+  <input id="qty" type="number" min="1" value="1">
+  <br>
+  <button onclick="sendWhatsApp()">شراء الآن عبر واتساب</button>
+</div>
 
 </div>
+
+  <script>
+function sendWhatsApp() {
+    var qty = document.getElementById("qty").value;
+
+    var phoneNumber = "212785462848";
+
+    var message = "مرحبا، أريد طلب " + qty + " زهرة من Fatima Ezzahrae 🌹";
+
+    var url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
+}
+</script>
+
 
 <footer>
   © 2026 Fatima Ezzahrae
@@ -222,3 +237,4 @@ footer{
 
 </body>
 </html>
+
