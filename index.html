@@ -585,49 +585,54 @@ lbClose.addEventListener("click", closeLightbox);
 lightbox.addEventListener("click", (e) => { if(e.target === lightbox) closeLightbox(); });
 document.addEventListener("keydown", (e) => { if(e.key === "Escape") closeLightbox(); });
 
-/* Load Gallery From gallery.json */
-fetch("gallery.json")
-  .then(r => r.json())
-  .then(data => {
-    // Photos
-    const photoGallery = document.getElementById("photoGallery");
-    const photos = Array.isArray(data.photos) ? data.photos : [];
-    document.getElementById("photoCount").textContent = photos.length + " صور";
+</script>
 
-    photos.forEach(src => {
-      const wrap = document.createElement("div");
-      wrap.className = "card-img";
-      const img = document.createElement("img");
-      img.src = src;
-      img.alt = "صورة منتج";
-      img.loading = "lazy";
-      img.addEventListener("click", () => openLightbox(src));
-      wrap.appendChild(img);
-      photoGallery.appendChild(wrap);
-    });
+  <script>
 
-    // Videos
-    const videoGallery = document.getElementById("videoGallery");
-    const videos = Array.isArray(data.videos) ? data.videos : [];
-    document.getElementById("videoCount").textContent = videos.length + " فيديو";
+/* Your gallery data directly inside JS */
+const galleryData = {
+  photos: [
+    "photos/flower1.jpeg",
+    "photos/flower2.jpeg",
+    "photos/flower3.jpeg",
+    "photos/flower4.jpeg",
+    "photos/flower5.jpeg",
+    "photos/flower6.jpeg",
+    "photos/flower7.jpeg",
+    "photos/flower8.jpeg",
+    "photos/flower9.jpeg"
+  ],
+  videos: [
+    "videos/video1.mp4",
+    "videos/video2.mp4",
+    "videos/video3.mp4",
+    "videos/video4.mp4"
+  ]
+};
 
-    videos.forEach(src => {
-      const card = document.createElement("div");
-      card.className = "video-card";
-      const vid = document.createElement("video");
-      vid.controls = true;
-      vid.preload = "metadata";
-      vid.src = src;
-      card.appendChild(vid);
-      videoGallery.appendChild(card);
-    });
-  })
-  .catch(err => {
-    console.error("Error loading gallery.json:", err);
-    document.getElementById("photoCount").textContent = "خطأ في تحميل الصور";
-    document.getElementById("videoCount").textContent = "خطأ في تحميل الفيديوهات";
-  });
+
+/* Load Photos */
+const photoGallery = document.getElementById("photoGallery");
+galleryData.photos.forEach(src => {
+  const img = document.createElement("img");
+  img.src = src;
+  img.loading = "lazy";
+  photoGallery.appendChild(img);
+});
+
+
+/* Load Videos */
+const videoGallery = document.getElementById("videoGallery");
+galleryData.videos.forEach(src => {
+  const video = document.createElement("video");
+  video.controls = true;
+  video.src = src;
+  video.preload = "metadata";
+  videoGallery.appendChild(video);
+});
+
 </script>
 
 </body>
 </html>
+
