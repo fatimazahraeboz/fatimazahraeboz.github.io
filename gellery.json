@@ -1,0 +1,19 @@
+{
+  "photos": [
+    "photos/flower1.jpeg",
+    "photos/flower2.jpeg",
+    "photos/flower3.jpeg",
+    "photos/flower4.jpeg",
+    "photos/flower5.jpeg",
+    "photos/flower6.jpeg",
+    "photos/flower7.jpeg",
+    "photos/flower8.jpeg",
+    "photos/flower9.jpeg"
+  ],
+  "videos": [
+    "videos/video1.mp4",
+    "videos/video2.mp4",
+    "videos/video3.mp4",
+    "videos/video4.mp4"
+  ]
+}
