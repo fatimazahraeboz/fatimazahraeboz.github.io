@@ -1,240 +1,633 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Fatima Ezzahrae</title>
 
 <style>
 :root{
   --main:#b3003c;
-  --soft:#ffe6ec;
+  --main2:#ff2e6e;
+  --ink:#2b2b2b;
+  --muted:#6b6b6b;
+  --card: rgba(255,255,255,.78);
+  --stroke: rgba(255,255,255,.55);
+  --shadow: 0 18px 45px rgba(0,0,0,.10);
+  --shadow2: 0 10px 25px rgba(0,0,0,.08);
+  --radius: 18px;
 }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
-  font-family: Arial, sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  color:var(--ink);
 
-  /* 🌹 Rose / Red Light Background */
-  background: linear-gradient(135deg, #fff0f5, #ffd6e0, #ffccd5);
+  /* background */
+  background:
+    radial-gradient(1200px 700px at 85% 10%, rgba(255, 46, 110, .18), transparent 55%),
+    radial-gradient(900px 600px at 10% 30%, rgba(179, 0, 60, .14), transparent 55%),
+    linear-gradient(135deg, #fff0f5, #ffd6e0, #ffccd5);
   background-attachment: fixed;
-  color:#333;
 }
 
-/* Header */
-header{
-  background:white;
-  padding:20px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.08);
-  position:relative;
+/* Top nav */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,.65);
+  border-bottom: 1px solid rgba(255,255,255,.55);
 }
 
-/* 🌸 Logo Left Corner */
-.logo{
-  position:absolute;
-  left:20px;
-  top:1px;
-}
-
-.logo img{
-  width:100px;
-}
-
-/* Title Center */
-.header-content{
-  text-align:center;
-}
-
-header h1{
-  margin:0;
-  color:var(--main);
-}
-
-header p{
-  margin-top:5px;
-  opacity:0.8;
-}
-
-/* Container */
-.container{
-  max-width:1000px;
+.nav-inner{
+  max-width:1100px;
   margin:auto;
-  padding:20px;
-}
-
-.card{
-  background:white;
-  padding:25px;
-  margin:20px 0;
-  border-radius:15px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.05);
-  animation: fadeUp 1s ease forwards;
-  opacity:0;
-}
-
-.card:nth-child(1){animation-delay:0.2s}
-.card:nth-child(2){animation-delay:0.4s}
-.card:nth-child(3){animation-delay:0.6s}
-.card:nth-child(4){animation-delay:0.8s}
-
-h2{
-  color:var(--main);
-}
-
-/* Gallery */
-.gallery{
+  padding:12px 18px;
   display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width: 180px;
+}
+
+.brand img{
+  width:56px;
+  height:56px;
+  object-fit:contain;
+  border-radius:14px;
+  background: rgba(255,255,255,.8);
+  box-shadow: var(--shadow2);
+  padding:6px;
+}
+
+.brand .title{
+  line-height:1.1;
+}
+.brand .title b{
+  display:block;
+  color:var(--main);
+  font-size:16px;
+}
+.brand .title span{
+  display:block;
+  font-size:12px;
+  color:var(--muted);
+}
+
+.links{
+  display:flex;
+  gap:10px;
   flex-wrap:wrap;
-  gap:15px;
   justify-content:center;
 }
 
-.gallery img{
-  width:250px;
-  border-radius:12px;
-  transition:0.3s;
+.links a{
+  text-decoration:none;
+  color:var(--ink);
+  font-size:14px;
+  padding:10px 12px;
+  border-radius:999px;
+  transition:.25s;
+}
+.links a:hover{
+  background: rgba(179,0,60,.08);
+  color: var(--main);
 }
 
-.gallery img:hover{
-  transform:scale(1.05);
+.cta{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.pill{
+  border: 1px solid rgba(179,0,60,.18);
+  background: rgba(255,255,255,.72);
+  padding:10px 12px;
+  border-radius:999px;
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* Hero */
+.hero{
+  max-width:1100px;
+  margin: 26px auto 10px;
+  padding: 0 18px;
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap:18px;
+  align-items:stretch;
+}
+
+.hero-card{
+  background: var(--card);
+  border: 1px solid var(--stroke);
+  border-radius: calc(var(--radius) + 6px);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+
+.hero-main{
+  padding:22px;
+  position:relative;
+}
+
+.hero-main h1{
+  margin:0 0 8px;
+  color:var(--main);
+  font-size: 30px;
+  letter-spacing:.2px;
+}
+
+.hero-main p{
+  margin:0;
+  color: var(--muted);
+  line-height:1.8;
+  font-size:15px;
+}
+
+.badges{
+  margin-top:16px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.badge{
+  background: rgba(255,255,255,.75);
+  border: 1px solid rgba(255,255,255,.55);
+  padding:10px 12px;
+  border-radius: 999px;
+  font-size:13px;
+  box-shadow: var(--shadow2);
+}
+
+.hero-side{
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.mini{
+  background: rgba(255,255,255,.76);
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: var(--radius);
+  padding:14px;
+  box-shadow: var(--shadow2);
+}
+
+.mini h3{
+  margin:0 0 8px;
+  font-size:14px;
+  color:var(--main);
+}
+
+.mini p{
+  margin:0;
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.mini button{
+  width:100%;
+  margin-top:10px;
+  border:none;
+  border-radius: 14px;
+  padding:12px 14px;
+  cursor:pointer;
+  background: linear-gradient(135deg, var(--main), var(--main2));
+  color:white;
+  font-weight:700;
+  transition:.25s;
+}
+.mini button:hover{transform: translateY(-1px); opacity:.95}
+
+/* Sections */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding: 12px 18px 80px;
+}
+
+.section{
+  margin-top:18px;
+  background: var(--card);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+
+.section-header{
+  padding:16px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  border-bottom: 1px solid rgba(255,255,255,.55);
+}
+
+.section-header h2{
+  margin:0;
+  color:var(--main);
+  font-size:18px;
+}
+
+.count{
+  font-size:12px;
+  color:var(--muted);
+  background: rgba(255,255,255,.75);
+  border: 1px solid rgba(255,255,255,.55);
+  padding:8px 10px;
+  border-radius:999px;
+}
+
+.section-body{
+  padding: 16px 16px 18px;
+}
+
+/* Gallery grid */
+.gallery{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:12px;
+}
+
+.card-img{
+  position:relative;
+  border-radius: 16px;
+  overflow:hidden;
+  background: rgba(255,255,255,.55);
+  border: 1px solid rgba(255,255,255,.55);
+  box-shadow: var(--shadow2);
+  cursor:pointer;
+  transition:.25s;
+}
+
+.card-img:hover{
+  transform: translateY(-2px);
+}
+
+.card-img img{
+  width:100%;
+  height: 180px;
+  object-fit: cover;
+  display:block;
+  transform: scale(1.02);
 }
 
 /* Videos */
-video{
-  width:400px;
-  max-width:100%;
-  border-radius:12px;
-  margin:10px;
+.video-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:12px;
 }
 
-/* Buy Box */
-.buyBox{
-  text-align:center;
+.video-card{
+  border-radius:16px;
+  overflow:hidden;
+  background: rgba(255,255,255,.65);
+  border: 1px solid rgba(255,255,255,.55);
+  box-shadow: var(--shadow2);
 }
 
-input{
-  padding:10px;
+.video-card video{
+  width:100%;
+  height: 260px;
+  display:block;
+  object-fit: cover;
+}
+
+/* Buy box */
+.buy{
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap:12px;
+  align-items:center;
+}
+
+.buy p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.8;
+  font-size:14px;
+}
+
+.controls{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+}
+
+input[type="number"]{
   width:120px;
-  text-align:center;
-  border-radius:8px;
-  border:1px solid #ccc;
+  padding:12px 12px;
+  border-radius:14px;
+  border: 1px solid rgba(0,0,0,.08);
+  background: rgba(255,255,255,.8);
+  font-size:14px;
 }
 
-button{
-  background:var(--main);
-  color:white;
+.primary{
   border:none;
-  padding:10px 20px;
-  border-radius:8px;
+  border-radius:14px;
+  padding:12px 14px;
   cursor:pointer;
-  margin-top:10px;
-  transition:0.3s;
+  background: linear-gradient(135deg, var(--main), var(--main2));
+  color:white;
+  font-weight:800;
+  transition:.25s;
+}
+.primary:hover{transform: translateY(-1px); opacity:.95}
+
+/* Lightbox */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background: rgba(0,0,0,.72);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  z-index:100;
 }
 
-button:hover{
-  opacity:0.85;
+.lightbox.active{display:flex}
+
+.lightbox img{
+  max-width:min(980px, 96vw);
+  max-height: 86vh;
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.35);
+  background:white;
 }
 
-@keyframes fadeUp{
-  from{transform:translateY(20px); opacity:0;}
-  to{transform:translateY(0); opacity:1;}
+.lightbox .close{
+  position:absolute;
+  top:16px;
+  left:16px;
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:999px;
+  cursor:pointer;
+  background: rgba(255,255,255,.85);
+  font-size:22px;
+  box-shadow: var(--shadow2);
 }
 
+/* WhatsApp floating */
+.whatsapp{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:80;
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.whatsapp a{
+  text-decoration:none;
+  background: #25D366;
+  color:white;
+  padding:12px 14px;
+  border-radius: 999px;
+  font-weight:800;
+  box-shadow: var(--shadow);
+}
+
+/* Footer */
 footer{
   text-align:center;
-  padding:15px;
-  background:white;
-  margin-top:30px;
+  padding:18px;
+  color:rgba(0,0,0,.55);
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .hero{grid-template-columns: 1fr; }
+  .gallery{grid-template-columns: repeat(3, 1fr);}
+  .buy{grid-template-columns: 1fr;}
+  .controls{justify-content:flex-start;}
+  .video-grid{grid-template-columns: 1fr;}
+}
+@media (max-width: 640px){
+  .brand .title span{display:none}
+  .links{display:none}
+  .gallery{grid-template-columns: repeat(2, 1fr);}
+  .card-img img{height: 160px;}
+  .video-card video{height: 220px;}
+  .hero-main h1{font-size: 26px;}
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<!-- NAV -->
+<div class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <img src="photos/logo.png" alt="Fatima Ezzahrae Logo">
+      <div class="title">
+        <b>Fatoucha Flowers</b>
+        <span>زهور بلاستيكية تدوم أطول 🌹</span>
+      </div>
+    </div>
 
-  <!-- 🌸 LOGO LEFT -->
-  <div class="logo">
-    <img src="photos/logo.png" alt="Fatima Ezzahrae Logo">
+    <div class="links">
+      <a href="#about">عنّا</a>
+      <a href="#photos">الصور</a>
+      <a href="#videos">الفيديوهات</a>
+      <a href="#order">الطلب</a>
+    </div>
+
+    <div class="cta">
+      <div class="pill">توصيل • جودة • ثمن مناسب</div>
+    </div>
   </div>
+</div>
 
-  <div class="header-content">
-    <h1>Fatima Ezzahrae</h1>
-    <p>زهور بلاستيكية تدوم أطول من الطبيعية 🌹</p>
-  </div>
-
-</header>
-
-<div class="container">
-
-  <div class="card">
-    <h2>لماذا تختار زهورنا؟</h2>
+<!-- HERO -->
+<div class="hero" id="about">
+  <div class="hero-card hero-main">
+    <h1>زهور أنيقة تدوم طويلاً</h1>
     <p>
-      زهورنا البلاستيكية تدوم لفترة أطول من الزهور الطبيعية،
-      لا تحتاج إلى ماء،
-      ويمكنك شراء زهرة واحدة فقط أو عدة زهور حسب رغبتك.
+      زهورنا البلاستيكية تبقى جميلة لفترة طويلة بدون ماء وبدون تعب.
+      اختاري زهرة واحدة أو باقة كاملة حسب ذوقك ✨
     </p>
-  </div>
 
-  <div class="card">
-    <h2>صور المنتجات</h2>
-    <div class="gallery">
-      <img src="photos/flower1.jpeg">
-      <img src="photos/flower2.jpeg">
-      <img src="photos/flower3.jpeg">
-      <img src="photos/flower4.jpeg">
-      <img src="photos/flower5.jpeg">
-      <img src="photos/flower6.jpeg">
-      <img src="photos/flower7.jpeg">
-      <img src="photos/flower8.jpeg">
-      <img src="photos/flower9.jpeg">
+    <div class="badges">
+      <div class="badge">🌹 مظهر طبيعي</div>
+      <div class="badge">🧼 سهلة التنظيف</div>
+      <div class="badge">🎁 مناسبة للهدايا</div>
+      <div class="badge">🏡 ديكور للبيت</div>
     </div>
   </div>
 
-  <div class="card">
-    <h2>فيديوهات</h2>
-    <video controls>
-      <source src="videos/video1.mp4" type="video/mp4">
-    </video>
-    <video controls>
-      <source src="videos/video2.mp4" type="video/mp4">
-    </video>
-    <video controls>
-      <source src="videos/video3.mp4" type="video/mp4">
-    </video>
-    <video controls>
-      <source src="videos/video4.mp4" type="video/mp4">
-    </video>
+  <div class="hero-card hero-side">
+    <div class="mini">
+      <h3>طلب سريع عبر واتساب</h3>
+      <p>اختاري الكمية واضغطي شراء، وسيتم فتح واتساب برسالة جاهزة.</p>
+      <button onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">اطلب الآن</button>
+    </div>
+
+    <div class="mini">
+      <h3>ملاحظة</h3>
+      <p>إذا لم تظهر الصور/الفيديوهات، شغّلي الموقع عبر Live Server أو استضافة (ليس file://).</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- PHOTOS -->
+  <div class="section" id="photos">
+    <div class="section-header">
+      <h2>صور المنتجات</h2>
+      <div class="count" id="photoCount">...</div>
+    </div>
+    <div class="section-body">
+      <div class="gallery" id="photoGallery"></div>
+    </div>
   </div>
 
-  <div class="card buyBox">
-  <h2>اطلب الآن</h2>
-  <input id="qty" type="number" min="1" value="1">
-  <br>
-  <button onclick="sendWhatsApp()">شراء الآن عبر واتساب</button>
-</div>
+  <!-- VIDEOS -->
+  <div class="section" id="videos">
+    <div class="section-header">
+      <h2>فيديوهات</h2>
+      <div class="count" id="videoCount">...</div>
+    </div>
+    <div class="section-body">
+      <div class="video-grid" id="videoGallery"></div>
+    </div>
+  </div>
+
+  <!-- ORDER -->
+  <div class="section" id="order">
+    <div class="section-header">
+      <h2>اطلب الآن</h2>
+      <div class="count">واتساب</div>
+    </div>
+    <div class="section-body">
+      <div class="buy">
+        <p>
+          اكتبي الكمية ثم اضغطي على زر الشراء.
+          سيتم فتح واتساب برسالة جاهزة لإتمام الطلب 🌹
+        </p>
+
+        <div class="controls">
+          <input id="qty" type="number" min="1" value="1" />
+          <button class="primary" onclick="sendWhatsApp()">شراء الآن عبر واتساب</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>
 
-  <script>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="close" id="lbClose" aria-label="Close">×</button>
+  <img id="lbImg" alt="Preview">
+</div>
+
+<!-- FLOATING WHATSAPP -->
+<div class="whatsapp">
+  <a href="#" onclick="sendWhatsApp(); return false;">WhatsApp</a>
+</div>
+
+<footer>© 2026 Fatima Ezzahrae</footer>
+
+<script>
+/* WhatsApp */
 function sendWhatsApp() {
-    var qty = document.getElementById("qty").value;
-
-    var phoneNumber = "212785462848";
-
-    var message = "مرحبا، أريد طلب " + qty + " زهرة من Fatima Ezzahrae 🌹";
-
-    var url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
-
-    window.open(url, "_blank");
+  const qty = document.getElementById("qty")?.value || 1;
+  const phoneNumber = "212785462848";
+  const message = "مرحبا، أريد طلب " + qty + " زهرة من Fatima Ezzahrae 🌹";
+  const url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+  window.open(url, "_blank");
 }
+
+/* Lightbox */
+const lightbox = document.getElementById("lightbox");
+const lbImg = document.getElementById("lbImg");
+const lbClose = document.getElementById("lbClose");
+
+function openLightbox(src){
+  lbImg.src = src;
+  lightbox.classList.add("active");
+  lightbox.setAttribute("aria-hidden","false");
+}
+function closeLightbox(){
+  lightbox.classList.remove("active");
+  lightbox.setAttribute("aria-hidden","true");
+  lbImg.src = "";
+}
+lbClose.addEventListener("click", closeLightbox);
+lightbox.addEventListener("click", (e) => { if(e.target === lightbox) closeLightbox(); });
+document.addEventListener("keydown", (e) => { if(e.key === "Escape") closeLightbox(); });
+
+/* Load Gallery From gallery.json */
+fetch("gallery.json")
+  .then(r => r.json())
+  .then(data => {
+    // Photos
+    const photoGallery = document.getElementById("photoGallery");
+    const photos = Array.isArray(data.photos) ? data.photos : [];
+    document.getElementById("photoCount").textContent = photos.length + " صور";
+
+    photos.forEach(src => {
+      const wrap = document.createElement("div");
+      wrap.className = "card-img";
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = "صورة منتج";
+      img.loading = "lazy";
+      img.addEventListener("click", () => openLightbox(src));
+      wrap.appendChild(img);
+      photoGallery.appendChild(wrap);
+    });
+
+    // Videos
+    const videoGallery = document.getElementById("videoGallery");
+    const videos = Array.isArray(data.videos) ? data.videos : [];
+    document.getElementById("videoCount").textContent = videos.length + " فيديو";
+
+    videos.forEach(src => {
+      const card = document.createElement("div");
+      card.className = "video-card";
+      const vid = document.createElement("video");
+      vid.controls = true;
+      vid.preload = "metadata";
+      vid.src = src;
+      card.appendChild(vid);
+      videoGallery.appendChild(card);
+    });
+  })
+  .catch(err => {
+    console.error("Error loading gallery.json:", err);
+    document.getElementById("photoCount").textContent = "خطأ في تحميل الصور";
+    document.getElementById("videoCount").textContent = "خطأ في تحميل الفيديوهات";
+  });
 </script>
-
-
-<footer>
-  © 2026 Fatima Ezzahrae
-</footer>
 
 </body>
 </html>
-
