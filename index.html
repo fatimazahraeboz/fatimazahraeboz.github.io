@@ -489,36 +489,71 @@ footer{
       <button onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">اطلب الآن</button>
     </div>
 
-    <div class="mini">
-      <h3>ملاحظة</h3>
-      <p>إذا لم تظهر الصور/الفيديوهات، شغّلي الموقع عبر Live Server أو استضافة (ليس file://).</p>
-    </div>
+   
   </div>
 </div>
 
 <div class="container">
 
-  <!-- PHOTOS -->
-  <div class="section" id="photos">
-    <div class="section-header">
-      <h2>صور المنتجات</h2>
-      <div class="count" id="photoCount">...</div>
-    </div>
-    <div class="section-body">
-      <div class="gallery" id="photoGallery"></div>
-    </div>
+<!-- PHOTOS -->
+<div class="section" id="photos">
+  <div class="section-header">
+    <h2>صور المنتجات</h2>
+    <div class="count" id="photoCount">...</div>
   </div>
 
-  <!-- VIDEOS -->
-  <div class="section" id="videos">
-    <div class="section-header">
-      <h2>فيديوهات</h2>
-      <div class="count" id="videoCount">...</div>
-    </div>
-    <div class="section-body">
-      <div class="video-grid" id="videoGallery"></div>
+  <div class="section-body">
+    <div class="gallery" id="photoGallery">
+      <div class="card-img"><img src="photos/flower1.jpeg" alt="صورة منتج"></div>
+      <div class="card-img"><img src="photos/flower2.jpeg" alt="صورة منتج"></div>
+      <div class="card-img"><img src="photos/flower3.jpeg" alt="صورة منتج"></div>
+      <div class="card-img"><img src="photos/flower4.jpeg" alt="صورة منتج"></div>
+      <div class="card-img"><img src="photos/flower5.jpeg" alt="صورة منتج"></div>
+      <div class="card-img"><img src="photos/flower6.jpeg" alt="صورة منتج"></div>
+      <div class="card-img"><img src="photos/flower7.jpeg" alt="صورة منتج"></div>
+      <div class="card-img"><img src="photos/flower8.jpeg" alt="صورة منتج"></div>
+      <div class="card-img"><img src="photos/flower9.jpeg" alt="صورة منتج"></div>
     </div>
   </div>
+</div>
+
+<!-- VIDEOS -->
+<div class="section" id="videos">
+  <div class="section-header">
+    <h2>فيديوهات</h2>
+    <div class="count" id="videoCount">...</div>
+  </div>
+
+  <div class="section-body">
+    <div class="video-grid" id="videoGallery">
+
+      <div class="video-card">
+        <video controls preload="metadata">
+          <source src="videos/video1.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="video-card">
+        <video controls preload="metadata">
+          <source src="videos/video2.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="video-card">
+        <video controls preload="metadata">
+          <source src="videos/video3.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="video-card">
+        <video controls preload="metadata">
+          <source src="videos/video4.mp4" type="video/mp4">
+        </video>
+      </div>
+
+    </div>
+  </div>
+</div>
 
   <!-- ORDER -->
   <div class="section" id="order">
@@ -585,54 +620,15 @@ lbClose.addEventListener("click", closeLightbox);
 lightbox.addEventListener("click", (e) => { if(e.target === lightbox) closeLightbox(); });
 document.addEventListener("keydown", (e) => { if(e.key === "Escape") closeLightbox(); });
 
+/* Make images clickable + set counts (from HTML) */
+const imgs = document.querySelectorAll("#photoGallery img");
+document.getElementById("photoCount").textContent = imgs.length + " صور";
+imgs.forEach(img => img.addEventListener("click", () => openLightbox(img.src)));
+
+const vids = document.querySelectorAll("#videoGallery video");
+document.getElementById("videoCount").textContent = vids.length + " فيديو";
 </script>
 
-  <script>
-
-/* Your gallery data directly inside JS */
-const galleryData = {
-  photos: [
-    "photos/flower1.jpeg",
-    "photos/flower2.jpeg",
-    "photos/flower3.jpeg",
-    "photos/flower4.jpeg",
-    "photos/flower5.jpeg",
-    "photos/flower6.jpeg",
-    "photos/flower7.jpeg",
-    "photos/flower8.jpeg",
-    "photos/flower9.jpeg"
-  ],
-  videos: [
-    "videos/video1.mp4",
-    "videos/video2.mp4",
-    "videos/video3.mp4",
-    "videos/video4.mp4"
-  ]
-};
-
-
-/* Load Photos */
-const photoGallery = document.getElementById("photoGallery");
-galleryData.photos.forEach(src => {
-  const img = document.createElement("img");
-  img.src = src;
-  img.loading = "lazy";
-  photoGallery.appendChild(img);
-});
-
-
-/* Load Videos */
-const videoGallery = document.getElementById("videoGallery");
-galleryData.videos.forEach(src => {
-  const video = document.createElement("video");
-  video.controls = true;
-  video.src = src;
-  video.preload = "metadata";
-  videoGallery.appendChild(video);
-});
-
-</script>
 
 </body>
 </html>
-
